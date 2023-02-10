@@ -10,7 +10,12 @@ function App() {
   });
 
   const [heroes, setHeroes] = useState([])
-  
+  const [activeButton, setActiveButton] = useState(0);
+
+  const handleButton = (index) => {
+    setActiveButton(index)
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch('http://localhost:8085/query', {
@@ -35,16 +40,19 @@ function App() {
   }, [])
 
   return (
-    <div className='App'>
-      <div className='center'>
-        {
-          heroes.map((hero, _) => (
-            <button class="buttons" onClick="">{hero.name}</button>
-            
+    <div className="container">
+      <div className="nav-bar">
+        { 
+          heroes.map((hero, index) => (
+            <button
+              onClick={() => {handleButton(index)}}
+              className = {activeButton === index ? "button-active" : "button-deactive" }>
+              {hero.name}
+            </button>
           ))
         }
       </div>
-      <div>
+      <div className="graphiql">
         <GraphiQL fetcher={fetcher} />
       </div>
     </div>
