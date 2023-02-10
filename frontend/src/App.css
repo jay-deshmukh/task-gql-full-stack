@@ -1,0 +1,28 @@
+.Luke-Skywalker-Background {
+    background-color: #0000;
+}
+
+.Han-Solo-Background {
+    background-color: #c83444;
+}
+
+.C3PO-Background {
+    background-color: #62542a;
+}
+
+.center {
+    font-family: arial;
+    font-size: 24px;
+    outline: dashed 1px black;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    display: inline-flex;
+    min-width:10em;
+    box-shadow:0 0 5px;
+    margin:1em;
+    border-radius:0.25em;
+    justify-content: center;
+}
