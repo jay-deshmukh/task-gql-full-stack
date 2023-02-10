@@ -1,14 +1,7 @@
 import './App.css';
-import GraphiQL from 'graphiql';
-import { createGraphiQLFetcher } from '@graphiql/toolkit';
-import 'graphiql/graphiql.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  const fetcher = createGraphiQLFetcher({
-    url: 'http://localhost:8085/query',
-  });
-
   const [heroes, setHeroes] = useState([])
   const [activeButton, setActiveButton] = useState(0);
 
@@ -32,6 +25,7 @@ function App() {
       });
 
       const json = await response.json();
+      
       setHeroes(json.data.heroes);
     }
 
@@ -40,21 +34,19 @@ function App() {
   }, [])
 
   return (
-    <div className="container">
-      <div className="nav-bar">
-        { 
-          heroes.map((hero, index) => (
+    <div className="container nav-bar">
+      { 
+      
+      heroes.map((hero, index) => (
             <button
+              name="heroButton"
+              key={hero.name}
               onClick={() => {handleButton(index)}}
               className = {activeButton === index ? "button-active" : "button-deactive" }>
               {hero.name}
             </button>
-          ))
-        }
-      </div>
-      <div className="graphiql">
-        <GraphiQL fetcher={fetcher} />
-      </div>
+        ))
+      }
     </div>
   )
 }
