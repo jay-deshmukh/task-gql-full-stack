@@ -31,5 +31,5 @@ func CountEnumValues(schema []byte) (int, error) {
 		return 0, report
 	}
 
-	return -1, nil
+	return visitor.enumCount, nil // Fatma: Problem 1.3 - Bonus. (Before -1) counts the number of enum values
 }

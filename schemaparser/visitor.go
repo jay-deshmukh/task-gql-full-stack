@@ -8,6 +8,7 @@ import (
 type visitor struct {
 	astvisitor.Walker
 	typeNames []string
+	enumCount int // Fatma: Problem 1.3 - Bonus.
 }
 
 func newVisitor() *visitor {
@@ -29,9 +30,17 @@ func (v *visitor) EnterDocument(operation, definition *ast.Document) {
 			name := operation.InterfaceTypeDefinitionNameString(r.Ref)
 			v.typeNames = append(v.typeNames, name)
 		*/
+
 		case ast.NodeKindObjectTypeDefinition:
 			name := operation.ObjectTypeDefinitionNameString(r.Ref)
 			v.typeNames = append(v.typeNames, name)
+
+		/* Fatma: Problem 1.3 - Bonus := Count the total number of enum values
+		 */
+		case ast.NodeKindEnumTypeDefinition:
+			name := operation.EnumTypeDefinitionNameString(r.Ref)
+			v.enumCount += len(name)
+
 		default:
 			continue
 		}
