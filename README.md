@@ -108,8 +108,8 @@ Currently one of the test is failing one FE, make the changes in the appropriate
 - Use the currently available BE to render a [Graphiql](https://www.npmjs.com/package/graphiql) playground that helps query the graphql API.
 
 
-- Add UI to render the JSON response received from BE.
-- The component should change the the background color on click.
+- Add UI to render the JSON response received from BE as `button` / `div`.
+- The component (`button` / `div`) should change the the background color on click.
 - Cover the functionality with unit tests.
 
 Wireframe :
