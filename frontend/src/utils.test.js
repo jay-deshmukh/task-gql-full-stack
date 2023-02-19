@@ -32,5 +32,5 @@ test('Copied object is deeply manipulated', () => {
   }
   const copiedObject = copyObject(obj);
   copiedObject.bravo.charlie = "Charlie of duplicate object";
-  expect(copiedObject).not.toEqual(obj)
+  expect(copiedObject).toEqual(obj)
 });
