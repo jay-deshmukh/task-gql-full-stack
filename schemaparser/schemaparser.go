@@ -2,9 +2,11 @@ package schemaparser
 
 import (
 	"github.com/jensneuse/graphql-go-tools/pkg/astparser"
+	"log"
 )
 
 func ParseTypes(schema []byte) ([]string, error) {
+	// this function below in the schema a schema and changes it to a document format so we can work with it.
 	document, report := astparser.ParseGraphqlDocumentBytes(schema)
 	if report.HasErrors() {
 		return nil, report
@@ -31,5 +33,6 @@ func CountEnumValues(schema []byte) (int, error) {
 		return 0, report
 	}
 
-	return -1, nil
+	log.Println(visitor.count)
+	return visitor.count, nil
 }

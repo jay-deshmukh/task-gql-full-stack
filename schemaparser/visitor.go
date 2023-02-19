@@ -8,6 +8,7 @@ import (
 type visitor struct {
 	astvisitor.Walker
 	typeNames []string
+	count     int
 }
 
 func newVisitor() *visitor {
@@ -15,6 +16,7 @@ func newVisitor() *visitor {
 	v := &visitor{
 		Walker:    w,
 		typeNames: []string{},
+		count:     0,
 	}
 
 	v.RegisterEnterDocumentVisitor(v)
@@ -25,13 +27,20 @@ func (v *visitor) EnterDocument(operation, definition *ast.Document) {
 	for _, r := range operation.RootNodes {
 		switch r.Kind {
 		case ast.NodeKindInterfaceTypeDefinition:
-			name := operation.InterfaceTypeDefinitionNameString(r.Ref)
-			v.typeNames = append(v.typeNames, name)
+			continue
+			//name := operation.InterfaceTypeDefinitionNameString(r.Ref)
+			//v.typeNames = append(v.typeNames, name)
+
 		case ast.NodeKindObjectTypeDefinition:
 			name := operation.ObjectTypeDefinitionNameString(r.Ref)
 			v.typeNames = append(v.typeNames, name)
+
+		case ast.NodeKindEnumTypeDefinition:
+			//log.Println(operation.EnumTypeDefinitions[r.Ref].EnumValuesDefinition.Refs)
+			v.count += len(operation.EnumTypeDefinitions[r.Ref].EnumValuesDefinition.Refs)
 		default:
 			continue
 		}
+
 	}
 }
