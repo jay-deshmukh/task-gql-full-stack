@@ -23,3 +23,26 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+  
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        script: |
+          cd frontend
+          npm install
+          npm install react-query
+          npm install axios
+          npm test
+
+        
+       
+       
+        
+       
+
+
+
