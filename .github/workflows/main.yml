@@ -31,11 +31,12 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - run: cd frontend
-    - run:  npm install
-    - run:  npm install react-query
-    - run: npm install axios
-    - run:  npm test
+        script: |
+          cd frontend
+          npm install
+          npm install react-query
+          npm install axios
+          npm test
 
         
        
