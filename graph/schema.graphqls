@@ -16,3 +16,19 @@ type Droid implements Character {
   name: String!
   primaryFunction: String!
 }
+enum Episode {
+  THE_PHANTOM_MENACE
+  ATTACK_OF_THE_CLONES
+  REVENGE_OF_THE_SITHS
+  A_NEW_HOPE
+  THE_EMPIRE_STRIKES_BACK
+  RETURN_OF_THE_JEDI
+  THE_FORCE_AWAKENS
+  THE_LAST_JEDI
+  THE_RISE_OF_SKYWALKER
+}
+
+enum Side {
+  JEDI
+  SITH
+}
