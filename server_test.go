@@ -19,7 +19,7 @@ func TestMainFunc(t *testing.T) {
 
 	t.Run("should get all heroes", func(t *testing.T) {
 		gqlReqBody := graphql.Request{
-			Query: "{ heroes { name ...on Human { hasLightsaber } ...on Droid { primaryFunction } } }",
+			Query: "{ heroes { name ...on Human { hasLightsaver } ...on Droid { primaryFunction } } }",
 		}
 
 		heroResponse := executeGraphQLRequest(t, gqlReqBody)
@@ -74,11 +74,11 @@ var expectedHeroes = `{
 	"heroes": [
 		{
 			"name": "Luke Skywalker",
-			"hasLightsaber": true
+			"hasLightsaver": true
 		},
 		{
 			"name": "Han Solo",
-			"hasLightsaber": false
+			"hasLightsaver": false
 		},
 		{
 			"name": "C-3PO",

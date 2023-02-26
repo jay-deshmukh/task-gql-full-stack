@@ -9,5 +9,5 @@ import (
 
 
  type Resolver struct{
-	heroes []*model.Character
+	Heroes []*model.Character
 }

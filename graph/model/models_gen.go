@@ -15,7 +15,7 @@ func (Droid) IsCharacter() {}
 
 type Human struct {
 	Name          string `json:"name"`
-	HasLightsaber bool   `json:"hasLightsaber"`
+	HasLightsaver bool   `json:"hasLightsaver"`
 }
 
 func (Human) IsCharacter() {}

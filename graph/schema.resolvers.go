@@ -15,19 +15,19 @@ func (r *queryResolver) Heroes(ctx context.Context) ([]model.Character, error) {
 	heroes := []model.Character{
 
 		&model.Human{
-			Name:          "Luke Skywalker",
-			HasLightsaber: true,
+			Name: "Luke Skywalker",
+			HasLightsaver: true,
 		},
 		&model.Human{
-			Name:          "Han Solo",
-			HasLightsaber: false,
+			Name: "Han Solo",
+			HasLightsaver: false,
 		},
 		&model.Droid{
-			Name:            "C-3PO",
+			Name: "C-3PO",
 			PrimaryFunction: "Translator",
 		},
 	}
-	return heroes, nil
+	return  heroes, nil
 }
 
 func (r *queryResolver) Types(ctx context.Context) ([]*string, error) {
